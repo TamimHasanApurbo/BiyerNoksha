@@ -19,7 +19,7 @@ public class Login extends JFrame implements ActionListener{
 	
 	
 	super(" BiyerNoksha ");
-this.setSize(854,500);
+this.setSize(860,500);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		//this.setVisible(true);

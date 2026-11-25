@@ -16,24 +16,29 @@ public class CustomizePage extends JFrame {
     private Cursor cursor;
 
     CustomizePage() {
-        	super(" BiyerDhum ");
+        	super(" BiyerNoksha ");
 			
-		this.setSize(954,600);
+		Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+        double scaleX = screen.width / 954.0;
+        double scaleY = screen.height / 600.0;
+
+        this.setSize(screen.width,screen.height);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		//this.setVisible(true);
-		this.setResizable(false);
+		this.setResizable(true);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		
 ImageIcon img = new ImageIcon("Images/CustomizePannel.png");
 		Image i= img.getImage();
-		Image new_img = i.getScaledInstance(954,600,Image.SCALE_SMOOTH);
+		Image new_img = i.getScaledInstance(screen.width,screen.height,Image.SCALE_SMOOTH);
        	img = new ImageIcon(new_img);
 		l1 = new JLabel("",img,JLabel.CENTER);
-		l1.setBounds(0,0,954,580);
+		l1.setBounds(0,0,screen.width,screen.height);
 		
         c = this.getContentPane();
         c.setLayout(null);
-        c.setBackground(Color.decode("#F2F2F2"));
+        c.setBackground(new Color(34,7,15));
 
         // Icon
    /*     icon = new ImageIcon(getClass().getResource("/images/Icon.png"));
@@ -62,77 +67,127 @@ ImageIcon img = new ImageIcon("Images/CustomizePannel.png");
        
         label1 = new JLabel();
         label1.setText("Select Function");
-        label1.setBounds(32,200, 500, 50);
+        label1.setBounds(
+            (int)Math.round(32*scaleX),
+            (int)Math.round(200*scaleY),
+            500,50
+        );
         label1.setFont(f4);
+        label1.setForeground(new Color(212,175,55));
         c.add(label1);
 
         String[] cb1Str = { "Choose Your Function...", "Haldi", "Wedding","Wedding-Reciption" };
         cb1 = new JComboBox(cb1Str);
-        cb1.setBounds(170,210, 200, 30);
+        cb1.setBounds(
+            (int)Math.round(170*scaleX),
+            (int)Math.round(210*scaleY),
+            200,30
+        );
         cb1.setSelectedIndex(0);
         cb1.setFont(f5);
-        cb1.setBackground(Color.WHITE);
+        cb1.setBackground(new Color(255,248,240));
+        cb1.setForeground(new Color(34,7,15));
         c.add(cb1);
 
   
         label0 = new JLabel();
         label0.setText("Select People Number");
-        label0.setBounds(32,250, 200, 50);
+        label0.setBounds(
+            (int)Math.round(32*scaleX),
+            (int)Math.round(250*scaleY),
+            200,50
+        );
         label0.setFont(f4);
+        label0.setForeground(new Color(212,175,55));
         c.add(label0);
 
         String[] cb2Str = { "How " };
         cb2 = new JComboBox(cb2Str);
-        cb2.setBounds(170,260, 200, 30);
+        cb2.setBounds(
+            (int)Math.round(170*scaleX),
+            (int)Math.round(260*scaleY),
+            200,30
+        );
         cb2.setSelectedIndex(0);
         cb2.setFont(f5);
-        cb2.setBackground(Color.WHITE);
+        cb2.setBackground(new Color(255,248,240));
+        cb2.setForeground(new Color(34,7,15));
         cb2.disable();
         c.add(cb2);
 
         // Person
         label1 = new JLabel();
         label1.setText("Select Place");
-        label1.setBounds(32,300, 200, 50);
+        label1.setBounds(
+            (int)Math.round(32*scaleX),
+            (int)Math.round(300*scaleY),
+            200,50
+        );
         label1.setFont(f4);
+        label1.setForeground(new Color(212,175,55));
         c.add(label1);
 
         String[] cb3Str = { "Select Place ...", "Kushiara International Convention Hall", "Celebrity Convention Hall", "InterContinental Dhaka", "Dhaka Regency Hotel & Resor", "FARS Hotel & Resorts" };
         cb3 = new JComboBox(cb3Str);
-        cb3.setBounds(170,310, 200, 30);
+        cb3.setBounds(
+            (int)Math.round(170*scaleX),
+            (int)Math.round(310*scaleY),
+            200,30
+        );
         cb3.setSelectedIndex(0);
         cb3.setFont(f5);
-        cb3.setBackground(Color.WHITE);
+        cb3.setBackground(new Color(255,248,240));
+        cb3.setForeground(new Color(34,7,15));
         c.add(cb3);
 
         // Days
         label1 = new JLabel();
         label1.setText("Main Course");
-        label1.setBounds(32,350, 200, 50);
+        label1.setBounds(
+            (int)Math.round(32*scaleX),
+            (int)Math.round(350*scaleY),
+            200,50
+        );
         label1.setFont(f4);
+        label1.setForeground(new Color(212,175,55));
         c.add(label1);
 
         String[] cb4Str = { "Select Main Course...", "Chicken Biriyani", "Kacchi", "Shada Polaw", "Fried Rice" };
         cb4 = new JComboBox(cb4Str);
-        cb4.setBounds(170,360, 200, 30);
+        cb4.setBounds(
+            (int)Math.round(170*scaleX),
+            (int)Math.round(360*scaleY),
+            200,30
+        );
         cb4.setSelectedIndex(0);
         cb4.setFont(f5);
-        cb4.setBackground(Color.WHITE);
+        cb4.setBackground(new Color(255,248,240));
+        cb4.setForeground(new Color(34,7,15));
         c.add(cb4);
 
         // Hotel
         label1 = new JLabel();
         label1.setText("Desert");
-        label1.setBounds(32,400, 200, 50);
+        label1.setBounds(
+            (int)Math.round(32*scaleX),
+            (int)Math.round(400*scaleY),
+            200,50
+        );
         label1.setFont(f4);
+        label1.setForeground(new Color(212,175,55));
         c.add(label1);
 
         String[] cb5Str = { "Select Function first!" };
         cb5 = new JComboBox(cb5Str);
-        cb5.setBounds(170,410, 200, 30);
+        cb5.setBounds(
+            (int)Math.round(170*scaleX),
+            (int)Math.round(410*scaleY),
+            200,30
+        );
         cb5.setSelectedIndex(0);
         cb5.setFont(f5);
-        cb5.setBackground(Color.WHITE);
+        cb5.setBackground(new Color(255,248,240));
+        cb5.setForeground(new Color(34,7,15));
         cb5.disable();
         c.add(cb5);
 
@@ -144,32 +199,40 @@ ImageIcon img = new ImageIcon("Images/CustomizePannel.png");
         btn1.setBounds(53, 300, 0, 0);
         btn1.setFont(f2);
         btn1.setCursor(cursor);
-        btn1.setForeground(Color.WHITE);
-        btn1.setBackground(Color.decode("#C00000"));
+        btn1.setForeground(new Color(212,175,55));
+        btn1.setBackground(new Color(128,0,32));
         c.add(btn1);
 
         btn2 = new JButton("Back");
-        btn2.setBounds(53, 470, 120, 30);
+        btn2.setBounds(
+            (int)Math.round(53*scaleX),
+            (int)Math.round(470*scaleY),
+            120,30
+        );
         btn2.setFont(f2);
         btn2.setCursor(cursor);
-        btn2.setForeground(Color.WHITE);
-        btn2.setBackground(Color.decode("#C00000"));
+        btn2.setForeground(new Color(212,175,55));
+        btn2.setBackground(new Color(128,0,32));
         c.add(btn2);
 
         btn4 = new JButton("");
         btn4.setBounds(450, 800, 0, 0);
         btn4.setFont(f2);
         btn4.setCursor(cursor);
-        btn4.setForeground(Color.WHITE);
-        btn4.setBackground(Color.decode("#2E75B6"));
+        btn4.setForeground(new Color(212,175,55));
+        btn4.setBackground(new Color(128,0,32));
         c.add(btn4);
 
         btn3 = new JButton("Next");
-        btn3.setBounds(240, 470, 120, 30);
+        btn3.setBounds(
+            (int)Math.round(240*scaleX),
+            (int)Math.round(470*scaleY),
+            120,30
+        );
         btn3.setFont(f2);
         btn3.setCursor(cursor);
-        btn3.setForeground(Color.WHITE);
-        btn3.setBackground(Color.decode("#2E75B6"));
+        btn3.setForeground(new Color(212,175,55));
+        btn3.setBackground(new Color(128,0,32));
         c.add(btn3);
 
         nBtn = new JButton("");
@@ -366,7 +429,7 @@ ImageIcon img = new ImageIcon("Images/CustomizePannel.png");
 						
                         int totalCost = cb1Cost + cb4Cost+ cb3Cost;
 
-                        JOptionPane.showMessageDialog(null, "Total Cost : tk" + totalCost, "BiyerDhum!",
+                        JOptionPane.showMessageDialog(null, "Total Cost : tk" + totalCost, "BiyerNoksha!",
                                 JOptionPane.INFORMATION_MESSAGE);
 
                         setVisible(false);
@@ -444,7 +507,7 @@ ImageIcon img = new ImageIcon("Images/CustomizePannel.png");
 						
                         int totalCost = cb1Cost + cb4Cost+ cb3Cost;
 
-                        JOptionPane.showMessageDialog(null, "Total Cost : tk" + totalCost, "BiyerDhum!",
+                        JOptionPane.showMessageDialog(null, "Total Cost : tk" + totalCost, "BiyerNoksha!",
                                 JOptionPane.INFORMATION_MESSAGE);
 
                         setVisible(false);
@@ -532,7 +595,7 @@ ImageIcon img = new ImageIcon("Images/CustomizePannel.png");
 						
                         int totalCost = cb1Cost + cb4Cost+ cb3Cost;
 
-                        JOptionPane.showMessageDialog(null, "Total Cost : tk" + totalCost, "BiyerDhum!",
+                        JOptionPane.showMessageDialog(null, "Total Cost : tk" + totalCost, "BiyerNoksha!",
                                 JOptionPane.INFORMATION_MESSAGE);
 
                         setVisible(false);

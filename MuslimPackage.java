@@ -15,35 +15,49 @@ public class MuslimPackage extends JFrame implements ActionListener
 		
 		MuslimPackage(){
 			
-			super(" BiyerDhum ");
+			super(" BiyerNoksha ");
 			
-		this.setSize(854,500);
+		Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+        double scaleX = screen.width / 854.0;
+        double scaleY = screen.height / 480.0;
+
+        this.setSize(screen.width,screen.height);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		//this.setVisible(true);
-	    this.setResizable(false);
+	    this.setResizable(true);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.getContentPane().setBackground(new Color(34,7,15));
 		
 		ImageIcon img = new ImageIcon("Images/MuslimPackage.png");
 		Image i= img.getImage();
-		Image new_img = i.getScaledInstance(854,480,Image.SCALE_SMOOTH);
+		Image new_img = i.getScaledInstance(screen.width,screen.height,Image.SCALE_SMOOTH);
        	img = new ImageIcon(new_img);
 		l1 = new JLabel("",img,JLabel.CENTER);
-		l1.setBounds(-190,-100,854,480);
+		l1.setBounds(0,0,screen.width,screen.height);
 		
 
         b1 = new JButton("Back");
 		b1.setFont(new Font("Abadi",Font.BOLD,15));
-		b1.setBackground(Color.BLACK);
-		b1.setForeground(Color.white);
-		b1.setBounds(720,420,80,25);
+		b1.setBackground(new Color(128,0,32));
+		b1.setForeground(new Color(212,175,55));
+		b1.setBounds(
+            (int)Math.round(760*scaleX-40),
+            (int)Math.round(432.5*scaleY-12.5),
+            80,25
+        );
 		b1.addActionListener(this);
 		this.add(b1);
 		
 		b2 = new JButton("Next");
 		b2.setFont(new Font("Abadi",Font.BOLD,15));
-		b2.setBackground(Color.BLACK);
-		b2.setForeground(Color.white);
-		b2.setBounds(620,420,80,25);
+		b2.setBackground(new Color(128,0,32));
+		b2.setForeground(new Color(212,175,55));
+		b2.setBounds(
+            (int)Math.round(660*scaleX-40),
+            (int)Math.round(432.5*scaleY-12.5),
+            80,25
+        );
 		b2.addActionListener(this);
 		this.add(b2);
 this.add(l1);	
@@ -60,7 +74,7 @@ public void actionPerformed(ActionEvent ae)
 		}
 		else if(ae.getSource()==b2)
 			{
-				  JOptionPane.showMessageDialog(null, "Total Cost : 300000tk" , "BiyerDhum!",
+				  JOptionPane.showMessageDialog(null, "Total Cost : 300000tk" , "BiyerNoksha!",
                            JOptionPane.INFORMATION_MESSAGE);
 				ConfirmPaymentPage1 f = new ConfirmPaymentPage1();
 				this.setVisible(false);

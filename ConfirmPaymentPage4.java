@@ -15,36 +15,50 @@ public class ConfirmPaymentPage4 extends JFrame implements ActionListener{
 		JRadioButton c1,c2,c3,c4;
 
     ConfirmPaymentPage4() {
-        	super(" BiyerDhum ");
+        	super(" BiyerNoksha ");
 			
-		this.setSize(854,500);
+		Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+        double scaleX = screen.width / 854.0;
+        double scaleY = screen.height / 480.0;
+
+        this.setSize(screen.width,screen.height);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		//this.setVisible(true);
-		this.setResizable(false);
+		this.setResizable(true);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.getContentPane().setBackground(new Color(34,7,15));
 		
 		ImageIcon img = new ImageIcon("Images/ConfirmPaymentPage.png");
 		Image i= img.getImage();
-		Image new_img = i.getScaledInstance(854,480,Image.SCALE_SMOOTH);
+		Image new_img = i.getScaledInstance(screen.width,screen.height,Image.SCALE_SMOOTH);
        	img = new ImageIcon(new_img);
 		l1 = new JLabel("",img,JLabel.CENTER);
-		l1.setBounds(-300,-700,854,480);
+		l1.setBounds(0,0,screen.width,screen.height);
 			
 			
 		
 		        b1 = new JButton("Back");
 		b1.setFont(new Font("Abadi",Font.BOLD,15));
-		b1.setBackground(Color.BLACK);
-		b1.setForeground(Color.white);
-		b1.setBounds(720,420,80,25);
+		b1.setBackground(new Color(128,0,32));
+		b1.setForeground(new Color(212,175,55));
+		b1.setBounds(
+            (int)Math.round(760*scaleX-40),
+            (int)Math.round(432.5*scaleY-12.5),
+            80,25
+        );
 		b1.addActionListener(this);
 		this.add(b1);
 		
 		b2 = new JButton("Confirm");
 		b2.setFont(new Font("Abadi",Font.BOLD,15));
-		b2.setBackground(Color.BLACK);
-		b2.setForeground(Color.white);
-		b2.setBounds(600,420,100,25);
+		b2.setBackground(new Color(128,0,32));
+		b2.setForeground(new Color(212,175,55));
+		b2.setBounds(
+            (int)Math.round(650*scaleX-50),
+            (int)Math.round(432.5*scaleY-12.5),
+            100,25
+        );
 		b2.addActionListener(this);
 		this.add(b2);
 			

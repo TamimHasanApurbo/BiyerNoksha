@@ -15,27 +15,45 @@ public class BkashPayment4 extends JFrame implements ActionListener
 		
 		BkashPayment4(){
 			
-			super(" BiyerDhum ");
+			super(" BiyerNoksha ");
 			
-			this.setSize(854,600);
+			Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+        double scaleX = screen.width / 854.0;
+        double scaleY = screen.height / 580.0;
+
+        this.setSize(screen.width,screen.height);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		//this.setVisible(true);
-		this.setResizable(false);
+		this.setResizable(true);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.getContentPane().setBackground(new Color(34,7,15));
 		
 		
 		ImageIcon img = new ImageIcon("Images/BkashPayment.png");
 		Image i= img.getImage();
-		Image new_img = i.getScaledInstance(854,580,Image.SCALE_SMOOTH);
+		Image new_img = i.getScaledInstance(screen.width,screen.height,Image.SCALE_SMOOTH);
        	img = new ImageIcon(new_img);
 		l1 = new JLabel("",img,JLabel.CENTER);
-		l1.setBounds(-190,-220,854,580);
+		l1.setBounds(0,0,screen.width,screen.height);
 		
 		t1 = new JTextField();
-		t1.setBounds(260,250,300,25);
+        t1.setBackground(new Color(255,248,240));
+        t1.setForeground(new Color(34,7,15));
+		t1.setBounds(
+            (int)Math.round(410*scaleX-150),
+            (int)Math.round(262.5*scaleY-12.5),
+            300,25
+        );
 		this.add(t1);
 		t2 = new JPasswordField();
-		t2.setBounds(260,380,300,25);
+        t2.setBackground(new Color(255,248,240));
+        t2.setForeground(new Color(34,7,15));
+		t2.setBounds(
+            (int)Math.round(410*scaleX-150),
+            (int)Math.round(392.5*scaleY-12.5),
+            300,25
+        );
 		this.add(t2);
 		
 		
@@ -43,17 +61,25 @@ public class BkashPayment4 extends JFrame implements ActionListener
 		
 		b1 = new JButton("Back");
 		b1.setFont(new Font("Abadi",Font.BOLD,15));
-		b1.setBackground(Color.BLACK);
-		b1.setForeground(Color.white);
-		b1.setBounds(720,460,80,25);
+		b1.setBackground(new Color(128,0,32));
+		b1.setForeground(new Color(212,175,55));
+		b1.setBounds(
+            (int)Math.round(760*scaleX-40),
+            (int)Math.round(472.5*scaleY-12.5),
+            80,25
+        );
 		b1.addActionListener(this);
 		this.add(b1);
 		
 		b2 = new JButton("Next");
 		b2.setFont(new Font("Abadi",Font.BOLD,15));
-		b2.setBackground(Color.BLACK);
-		b2.setForeground(Color.white);
-		b2.setBounds(620,460,80,25);
+		b2.setBackground(new Color(128,0,32));
+		b2.setForeground(new Color(212,175,55));
+		b2.setBounds(
+            (int)Math.round(660*scaleX-40),
+            (int)Math.round(472.5*scaleY-12.5),
+            80,25
+        );
 		b2.addActionListener(this);
 		this.add(b2);
 		
@@ -80,7 +106,7 @@ public class BkashPayment4 extends JFrame implements ActionListener
 				{JOptionPane.showMessageDialog(null, "Invalid  Pin");}
 				else{
 					
-					JOptionPane.showMessageDialog(null, "Payment Confirmed\nThank you For Being With BiyerDhum");
+					JOptionPane.showMessageDialog(null, "Payment Confirmed\nThank you For Being With BiyerNoksha");
 					WelcomePage T= new WelcomePage();
 					this.setVisible(false);
 					T.setVisible(true);
